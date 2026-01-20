@@ -25,7 +25,7 @@ birds = {
     },
     "러버덕": {
         "cry": "삑삑삑",
-        "fly": "날지 못해",
+        "fly": "날지 못함",
         "distance": 0
     }
 }
@@ -41,4 +41,5 @@ if birds_name in birds:
         print(f"{birds_name}은 날지 못합니다.")
     else:
         print(f"{bird['fly']} 날았습니다.")
+
         print(f"결과는 {bird['distance']}m 입니다.")
