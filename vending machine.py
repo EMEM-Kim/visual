@@ -4,13 +4,6 @@ class vendingMachine(ABC):
     def __init__(self,)
         
 
-    def serve(self,):
-        self.insertmoney()
-        self.verification()
-        self.making()
-        self.dispense()
-        self.change()
-
     def insertmoney():
         print("돈 투입")
     
@@ -30,4 +23,5 @@ class coffevendingmachine(vendingMachine):
 
 
     def prepare(self):
+
         print("")
