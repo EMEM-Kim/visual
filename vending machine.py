@@ -1,9 +1,16 @@
-from abc import ABC, abstractmethod
+from abc import  abstractmethod
 
-class vendingMachine(ABC):
-    def __init__(self,)
+class vendingMachine(object):
+    def __init__(self,):
         
-
+    
+    def serve(self,):
+        self.insertmoney()
+        self.verification()
+        self.prepare()
+        self.dispense()
+        self.change()
+    
     def insertmoney():
         print("돈 투입")
     
@@ -23,5 +30,4 @@ class coffevendingmachine(vendingMachine):
 
 
     def prepare(self):
-
         print("")
