@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 from abc import ABC, abstractmethod
-price: int
-machine_name: str
 
 
 class VendingMachine(ABC):
@@ -67,4 +65,5 @@ print()
 ColaVendingMachine().serve(1000)
 print()
 RamenVendingMachine().serve(5000)
+
 print()
