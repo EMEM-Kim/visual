@@ -61,9 +61,9 @@ class RamenVendingMachine(VendingMachine):
         print("[라면 자판기] 뚜껑 열기 힌트 출력")
 
 CoffeeVendingMachine().serve(1500)
-print()
+
 ColaVendingMachine().serve(1000)
-print()
+ 
 RamenVendingMachine().serve(5000)
 
-print()
+
