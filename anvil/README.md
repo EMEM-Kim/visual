@@ -90,28 +90,35 @@
 
 ```mermaid
 sequenceDiagram
-    participant Client
-    participant AnvilAerospace as ConcreteCreator
-    participant Hornet as ConcreteProductA
-    participant Carrack as ConcreteProductB
+    autonumber
+    participant C as Client
+    participant Factory as AnvilAerospace (Creator)
+    participant Ship as Ship (Product)
 
-    Client ->> AnvilAerospace: order_ship("hornet")
-    AnvilAerospace ->> AnvilAerospace: create_ship("hornet")
-    AnvilAerospace ->> Hornet: new Hornet()
-    Hornet -->> AnvilAerospace: Ship instance
-    AnvilAerospace ->> Hornet: prepare()
-    AnvilAerospace ->> Hornet: verify()
-    AnvilAerospace ->> Hornet: launch()
-    AnvilAerospace -->> Client: return Hornet
+    Note over C, Ship: [Case 1] Hornet 주문 시 흐름
+    
+    C ->> Factory: order_ship("hornet")
+    activate Factory
+        Factory ->> Factory: create_ship("hornet")
+        
+        create participant H as Hornet
+        Factory ->> H: new Hornet()
+        activate H
+            H -->> Factory: instance
+        deactivate H
+        
+        Factory ->> H: prepare()
+        Factory ->> H: verify()
+        Factory ->> H: launch()
+        
+        Factory -->> C: return Hornet
+    deactivate Factory
 
-    Client ->> AnvilAerospace: order_ship("carrack")
-    AnvilAerospace ->> AnvilAerospace: create_ship("carrack")
-    AnvilAerospace ->> Carrack: new Carrack()
-    Carrack -->> AnvilAerospace: Ship instance
-    AnvilAerospace ->> Carrack: prepare()
-    AnvilAerospace ->> Carrack: verify()
-    AnvilAerospace ->> Carrack: launch()
-    AnvilAerospace -->> Client: return Carrack
+    rect rgb(240, 240, 240)
+    Note over C, Ship: [Case 2] Carrack 주문 시 (동일 로직 반복)
+    C ->> Factory: order_ship("carrack")
+    Factory -->> C: return Carrack
+    end
 
 
 
