@@ -88,37 +88,6 @@
 
 
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant C as Client
-    participant Factory as AnvilAerospace (Creator)
-    participant Ship as Ship (Product)
-
-    Note over C, Ship: [Case 1] Hornet 주문 시 흐름
-    
-    C ->> Factory: order_ship("hornet")
-    activate Factory
-        Factory ->> Factory: create_ship("hornet")
-        
-        create participant H as Hornet
-        Factory ->> H: new Hornet()
-        activate H
-            H -->> Factory: instance
-        deactivate H
-        
-        Factory ->> H: prepare()
-        Factory ->> H: verify()
-        Factory ->> H: launch()
-        
-        Factory -->> C: return Hornet
-    deactivate Factory
-
-    rect rgb(240, 240, 240)
-    Note over C, Ship: [Case 2] Carrack 주문 시 (동일 로직 반복)
-    C ->> Factory: order_ship("carrack")
-    Factory -->> C: return Carrack
-    end
 
 
 
