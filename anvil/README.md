@@ -71,3 +71,49 @@
   - 확장 가능성이 없다면 Simple Factory가 더 적합할 수 있음
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sequenceDiagram
+    participant Client
+    participant AnvilAerospace as ConcreteCreator
+    participant Hornet as ConcreteProductA
+    participant Carrack as ConcreteProductB
+
+    Client ->> AnvilAerospace: order_ship("hornet")
+    AnvilAerospace ->> AnvilAerospace: create_ship("hornet")
+    AnvilAerospace ->> Hornet: new Hornet()
+    Hornet -->> AnvilAerospace: Ship instance
+    AnvilAerospace ->> Hornet: prepare()
+    AnvilAerospace ->> Hornet: verify()
+    AnvilAerospace ->> Hornet: launch()
+    AnvilAerospace -->> Client: return Hornet
+
+    Client ->> AnvilAerospace: order_ship("carrack")
+    AnvilAerospace ->> AnvilAerospace: create_ship("carrack")
+    AnvilAerospace ->> Carrack: new Carrack()
+    Carrack -->> AnvilAerospace: Ship instance
+    AnvilAerospace ->> Carrack: prepare()
+    AnvilAerospace ->> Carrack: verify()
+    AnvilAerospace ->> Carrack: launch()
+    AnvilAerospace -->> Client: return Carrack
+
+
+
+
+
+
